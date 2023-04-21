@@ -18,7 +18,7 @@ Github: https://github.com/50DKP/TF2x10
 #include <tf2_stocks>
 #include <tf2items>
 #include <tf2attributes>
-#include <steamworks>
+#include <SteamWorks>
 #include <updater>
 #undef REQUIRE_PLUGIN
 #tryinclude <freak_fortress_2>
@@ -127,7 +127,7 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
 		return APLRes_Failure;
 	}
 
-	MarkNativeAsOptional("Steamworks_SetGameDescription");
+	MarkNativeAsOptional("SteamWorks_SetGameDescription");
 	MarkNativeAsOptional("VSH_IsSaxtonHaleModeEnabled");
 	MarkNativeAsOptional("VSH_GetSaxtonHaleUserId");
 	MarkNativeAsOptional("FF2_IsFF2Enabled");
@@ -341,11 +341,11 @@ void SetGameDescription()
 	if(cvarEnabled.BoolValue && cvarGameDesc.BoolValue && StrEqual(description, "Team Fortress"))
 	{
 		Format(description, sizeof(description), "TF2x10 v%s", PLUGIN_VERSION);
-		Steamworks_SetGameDescription(description);
+		SteamWorks_SetGameDescription(description);
 	}
 	else if((!cvarEnabled.BoolValue || !cvarGameDesc.BoolValue) && StrContains(description, "TF2x10 ") != -1)
 	{
-		Steamworks_SetGameDescription("Team Fortress");
+		SteamWorks_SetGameDescription("Team Fortress");
 	}
 }
 
@@ -729,7 +729,7 @@ public void OnMapEnd()
 
 	if(cvarEnabled.BoolValue && cvarGameDesc.BoolValue && StrContains(description, "TF2x10 ") != -1)
 	{
-		Steamworks_SetGameDescription("Team Fortress");
+		SteamWorks_SetGameDescription("Team Fortress");
 	}
 }
 
