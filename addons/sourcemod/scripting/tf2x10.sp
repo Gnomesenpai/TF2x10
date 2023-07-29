@@ -9,7 +9,8 @@ Alliedmodders thread: https://forums.alliedmods.net/showthread.php?p=2338136
 Github: https://github.com/50DKP/TF2x10
 */
 
-#include <handles>
+#pragma semicolon 1
+
 #include <sourcemod>
 #include <sdktools>
 #include <adminmenu>
@@ -347,7 +348,6 @@ void SetGameDescription()
 		SteamWorks_SetGameDescription("Team Fortress");
 	}
 }
-
 
 public void OnAdminMenuReady(Handle topmenu)
 {
@@ -2264,7 +2264,7 @@ public Action Timer_FixClips(Handle hTimer, any userid)
 	}
 
 	UpdateVariables(client);
-	TF2_AddCondition(client, TF_COND_SPEED_BOOST, 0.01); // recalc speed - thx sarge
+	TF2_AddCondition(client, 32, 0.01); // recalc speed - thx sarge
 
 	// Apparently the rage meter isn't resetting after switching buffs, so reset it forcefully
 	weapon = GetPlayerWeaponSlot(client, TFWeaponSlot_Secondary);
