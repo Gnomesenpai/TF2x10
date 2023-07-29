@@ -2264,7 +2264,7 @@ public Action Timer_FixClips(Handle hTimer, any userid)
 	}
 
 	UpdateVariables(client);
-	//TF2_AddCondition(client, TFCond_SpeedBuffAlly, 0.01); recalc speed - thx sarge
+	TF2_AddCondition(client, TF_COND_SPEED_BOOST, 0.01); // recalc speed - thx sarge
 
 	// Apparently the rage meter isn't resetting after switching buffs, so reset it forcefully
 	weapon = GetPlayerWeaponSlot(client, TFWeaponSlot_Secondary);
