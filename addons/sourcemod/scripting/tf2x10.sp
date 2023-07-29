@@ -9,8 +9,7 @@ Alliedmodders thread: https://forums.alliedmods.net/showthread.php?p=2338136
 Github: https://github.com/50DKP/TF2x10
 */
 
-#pragma semicolon 1
-
+#include <handles>
 #include <sourcemod>
 #include <sdktools>
 #include <adminmenu>
@@ -348,6 +347,7 @@ void SetGameDescription()
 		SteamWorks_SetGameDescription("Team Fortress");
 	}
 }
+
 
 public void OnAdminMenuReady(Handle topmenu)
 {
